@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'leads',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -73,12 +75,20 @@ WSGI_APPLICATION = 'leadmanager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+# This has to be DATABASE not DATABASES
+DATABASE = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        "CLIENT": {
+           "name": 'abrar',
+           "host": 'mongodb+srv://abrar:iLOVEmongodb123#@cluster0.hchxv.mongodb.net/web_development?retryWrites=true&w=majority',
+           "username": 'abrar',
+           "password": 'iLOVEmongodb123#',
+           "authMechanism": "SCRAM-SHA-1",
+        }
     }
 }
+
 
 
 # Password validation
